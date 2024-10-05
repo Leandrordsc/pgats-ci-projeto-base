@@ -8,7 +8,7 @@ jobs:
   # Descrição do job
   e2e-tests:
     # Máquina que o job vai executar.
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
 
     # Passo a passo das ações do job.
     steps:
