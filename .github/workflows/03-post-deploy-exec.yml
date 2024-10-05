@@ -14,7 +14,7 @@ jobs:
     # Máquina que o job vai executar
     runs-on: ubuntu-latest
 
-    if: $ {{github.event.workflow_run.conclusion == 'sucess'}}
+    if: $ {{github.event.workflow_run.conclusion == 'success'}}
 
     # Passo a passo das ações do job
     steps:
