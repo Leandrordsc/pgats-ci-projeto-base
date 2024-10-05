@@ -4,7 +4,7 @@ name: 'Execução Agendada'
 
 # Triggers ou Gatilhos de Execução
 on:
-  schuedule:
+  scheduled:
     - cron: '0 8 * * 1'
 
 jobs:
