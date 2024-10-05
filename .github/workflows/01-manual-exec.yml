@@ -1,16 +1,16 @@
 name: 'Execução Manual'
 
-# Triggers ou Gatilhos de Execução
+# Triggers ou Gatilhos de Execução.
 on:
   workflow_dispatch:
 
 jobs:
   # Descrição do job
   e2e-tests:
-    # Máquina que o job vai executar
+    # Máquina que o job vai executar.
     runs-on: ubuntu-latest
 
-    # Passo a passo das ações do job
+    # Passo a passo das ações do job.
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
