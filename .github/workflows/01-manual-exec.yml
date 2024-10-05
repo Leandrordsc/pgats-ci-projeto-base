@@ -1,16 +1,16 @@
 name: 'Execução Manual'
 
-# Triggers ou Gatilhos de Execução.
+# Triggers ou Gatilhos de Execução
 on:
   workflow_dispatch:
 
 jobs:
   # Descrição do job
   e2e-tests:
-  # Máquina que o job vai executar.
+    # Máquina que o job vai executar
     runs-on: ubuntu-latest
 
-  # Passo a passo das ações do job.
+    # Passo a passo das ações do job
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
@@ -27,7 +27,9 @@ jobs:
       - name: Teste E2E (end-to-end)
         run: yarn run e2e
 
-     - uses: actions/upload-artifact@v4
-       whith:
+      - name: Enviando relatório de testes
+        uses: actions/upload-artifact@v4
+        with:
           name: relatorio-de-testes
-          path: ./playwright-report 
+          path: ./playwright-report
+
