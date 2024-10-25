@@ -17,8 +17,8 @@ jobs:
           - name: Instalando dependências
             run: yarn install
 
-          - name: Padronizacao de codigo (lint)
-            run: yarn Lint
+          - name: Padronizacao de codigo (Lint)
+            run: yarn lint
 
   # Descrição do job
   e2e-tests:
