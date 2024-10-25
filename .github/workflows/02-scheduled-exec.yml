@@ -3,7 +3,7 @@ name: 'Execução Agendada'
 # Triggers ou Gatilhos de Execução
 on:
   schedule:
-    - cron: '0 8 * * 1'  # Executa toda segunda-feira às 08:00 UTC
+    - cron: '0 8 * * 1' # Executa toda segunda-feira às 08:00 UTC
 
 jobs:
   # Descrição do job
