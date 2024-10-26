@@ -3,19 +3,18 @@
 # nome que vai aparecer la nas opções de pipe
 name: 'Execução Integrada'
 
-# regras de disparo da execucao (triggers/gatilhos)
-# gatilho de exec manual = workflow_dispatch
-
+# Regras de disparo da execucao (triggers/gatilhos)
+# Gatilho de exec manual = workflow_dispatch
 on:
   workflow_dispatch:
 
-# inspecao
-#   padronizacao (formatacao de código)
-# testes 💜
-#   unidade
-#   e2e 💜
-#     build
-# deploy
+# Inspecao
+#   Padronizacao (formatacao de código)
+# Testes 
+#   Unidade
+#   e2e 
+#     Build
+# Deploy
 
 jobs:
   inspection:
@@ -30,7 +29,7 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Padronizacao de codigo (Lint)
+      - name: Padronização de código (Lint)
         run: yarn lint
 
   unit:
@@ -77,7 +76,7 @@ jobs:
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
         env:
-         URL: 'http://localhost:3000'
+          URL: 'http://localhost:3000'
 
       # passed, failed, cancelled
       - uses: actions/upload-artifact@v4
@@ -86,9 +85,5 @@ jobs:
           name: relatorio-de-testes
           path: ./playwright-report
 
-  deploy: # A indentação aqui está correta!
+  deploy:
     runs-on: ubuntu-latest
-    uses: actions/upload-artifact@v4
-
-
-
