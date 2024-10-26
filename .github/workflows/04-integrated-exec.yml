@@ -10,9 +10,9 @@ on:
 
 # inspecao
 #   padronizacao (formatacao de código)
-# testes 💜
+# testes 
 #   unidade
-#   e2e 💜
+#   e2e 
 #     build
 # deploy
 
