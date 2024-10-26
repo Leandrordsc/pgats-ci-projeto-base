@@ -5,7 +5,6 @@ name: 'Execução Integrada'
 
 # regras de disparo da execucao (triggers/gatilhos)
 # gatilho de exec manual = workflow_dispatch
-
 on:
   workflow_dispatch:
 
@@ -30,14 +29,13 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Padronizacao de codigo (Lint)
+      - name: Padronização de código (Lint)
         run: yarn lint
 
-    
-    unit: 
-       runs-on: ubuntu-latest 
+  unit: 
+    runs-on: ubuntu-latest 
 
-       steps:
+    steps:
       - uses: actions/checkout@v4
 
       - name: Instalando Yarn
