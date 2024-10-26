@@ -1,34 +1,19 @@
 # CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 
-# nome que vai aparecer la nas opções de pipe
 name: 'Execução Integrada'
 
-# Regras de disparo da execucao (triggers/gatilhos)
-# Gatilho de exec manual = workflow_dispatch
 on:
   workflow_dispatch:
-
-# Inspecao
-#   Padronizacao (formatacao de código)
-# Testes 
-#   Unidade
-#   e2e 
-#     Build
-# Deploy
 
 jobs:
   inspection:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
       - name: Instalando Yarn
         run: npm install -g yarn
-
       - name: Instalando dependências
         run: yarn
-
       - name: Padronização de código (Lint)
         run: yarn lint
 
@@ -37,53 +22,43 @@ jobs:
     needs: [inspection]
     steps:
       - uses: actions/checkout@v4
-
       - name: Instalando Yarn
         run: npm install -g yarn
-
       - name: Instalando dependências
         run: yarn
-
       - name: Testes de Unidade
         run: yarn run test
 
-  # descricao do job
   e2e-tests:
-    # maquina que o job vai executar
     runs-on: ubuntu-latest
     needs: [unit]
-
-    # passo a passo das acoes do job
     steps:
       - uses: actions/checkout@v4
-
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version: lts/*
-
       - name: Instalando Yarn
         run: npm install -g yarn
-
       - name: Instalando dependências
         run: yarn
-
       - name: Instalando Playwright
         run: yarn playwright install
-      
-      - name: Subir aplicacao local
+      - name: Subir aplicação local
         run: yarn start &
-
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
         env:
-         URL: 'http://localhost:3000'
-
-      # passed, failed, cancelled
+          URL: 'http://localhost:3000'
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
           path: ./playwright-report
 
-          deploy:
-            runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [e2e-tests]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy da aplicação
+        run: |
+          # Comandos para realizar o deploy, como:
+          echo "Fazendo deploy da aplicação"
+          # Substitua pela lógica de deploy da sua aplicação
