@@ -1,22 +1,21 @@
-O seu arquivo YAML está quase perfeito, mas tem um pequeno detalhe que precisa ser corrigido: a indentação do bloco `deploy`.
-
 # CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 
 # nome que vai aparecer la nas opções de pipe
 name: 'Execução Integrada'
 
-# Regras de disparo da execucao (triggers/gatilhos)
-# Gatilho de exec manual = workflow_dispatch
+# regras de disparo da execucao (triggers/gatilhos)
+# gatilho de exec manual = workflow_dispatch
+
 on:
   workflow_dispatch:
 
-# Inspecao
-#   Padronizacao (formatacao de código)
-# Testes 
-#   Unidade
-#   e2e 
-#     Build
-# Deploy
+# inspecao
+#   padronizacao (formatacao de código)
+# testes 💜
+#   unidade
+#   e2e 💜
+#     build
+# deploy
 
 jobs:
   inspection:
@@ -31,7 +30,7 @@ jobs:
       - name: Instalando dependências
         run: yarn
 
-      - name: Padronização de código (Lint)
+      - name: Padronizacao de codigo (Lint)
         run: yarn lint
 
   unit:
@@ -89,7 +88,7 @@ jobs:
 
   deploy: # A indentação aqui está correta!
     runs-on: ubuntu-latest
-    uses: testes
+    uses: actions/upload-artifact@v4
 
 
 
