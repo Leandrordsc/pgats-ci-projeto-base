@@ -1,18 +1,18 @@
 # CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 name: 'Execucao integrada'
-# triggers ou gatilhos de execucao
+# Triggers ou gatilhos de execucao
 # Gatilho de execução por deploy após outro workflow executado = workflow_run
 on: push
 
 jobs:
-  # - baixar as dependencias
-  # - compilar
-  # - testar
+  # - Baixar as dependencias
+  # - Compilar
+  # - Testar
   inspection:
-    # maquina que vai rodar
+    # Maquina que vai rodar
     runs-on: ubuntu-latest
 
-    #passo a paso das acoes do job
+    #Passo a paso das acoes do job
     steps:
       # - run: echo 'Execucao manual'
       - uses: actions/checkout@v4
@@ -45,11 +45,11 @@ jobs:
         run: yarn run test
 
   e2e-tests:
-    # maquina que vai rodar
+    # Maquina que vai rodar
     runs-on: [ubuntu-latest]
     needs: [unit]
 
-    #passo a paso das acoes do job
+    #Passo a paso das acoes do job
     steps:
       # - run: echo 'Execucao manual'
       - uses: actions/checkout@v4
@@ -74,7 +74,7 @@ jobs:
           URL: 'http://localhost:3000'
 
       - uses: actions/upload-artifact@v4
-        # por padrao a pipeline cancela se houver erro para evitar que ele cancele o passo seguinte no caso de erro, se quiser que a pipeline continue, basta adicionar o parametro 'if: ${{ !cancelled() }}'
+        # Por padrão, a pipeline é cancelada ao ocorrer um erro. Para permitir que continue mesmo com falhas, adicione:
         if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
