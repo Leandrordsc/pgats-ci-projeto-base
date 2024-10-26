@@ -1,6 +1,5 @@
 O seu arquivo YAML está quase perfeito, mas tem um pequeno detalhe que precisa ser corrigido: a indentação do bloco `deploy`.
 
-```yaml
 # CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
 
 # nome que vai aparecer la nas opções de pipe
