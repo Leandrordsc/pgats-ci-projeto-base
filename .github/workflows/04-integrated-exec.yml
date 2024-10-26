@@ -89,7 +89,7 @@ jobs:
 
   deploy: # A indentação aqui está correta!
     runs-on: ubuntu-latest
-    uses: .github/workflows/04-integrated-exec.yml
+    uses: testes
 
 
 
