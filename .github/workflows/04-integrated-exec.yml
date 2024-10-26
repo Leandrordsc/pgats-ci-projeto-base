@@ -3,18 +3,18 @@
 # nome que vai aparecer la nas opções de pipe
 name: 'Execução Integrada'
 
-# regras de disparo da execucao (triggers/gatilhos)
-# gatilho de exec manual = workflow_dispatch
+# Regras de disparo da execucao (triggers/gatilhos)
+# Gatilho de exec manual = workflow_dispatch
 on:
   workflow_dispatch:
 
-# inspecao
-#   padronizacao (formatacao de código)
-# testes 
-#   unidade
+# Inspecao
+#   Padronizacao (formatacao de código)
+# Testes 
+#   Unidade
 #   e2e 
-#     build
-# deploy
+#     Build
+# Deploy
 
 jobs:
   inspection:
