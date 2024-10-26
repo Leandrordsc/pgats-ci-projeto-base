@@ -76,7 +76,7 @@ jobs:
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
         env:
-          URL: 'http://localhost:3000'
+         URL: 'http://localhost:3000'
 
       # passed, failed, cancelled
       - uses: actions/upload-artifact@v4
@@ -85,18 +85,5 @@ jobs:
           name: relatorio-de-testes
           path: ./playwright-report
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [e2e-tests]
-    steps:
-      - name: Checkout do código
-        uses: actions/checkout@v4
-
-      - name: Configurar ambiente de produção
-        run: echo "Configurando o ambiente de produção..."
-
-      - name: Fazer deploy da aplicação
-        run: echo "Fazendo o deploy da aplicação..."
-        # Aqui você pode adicionar o comando real para fazer o deploy, como:
-        # run: npm run deploy
-
+          deploy:
+            runs-on: ubuntu-latest
