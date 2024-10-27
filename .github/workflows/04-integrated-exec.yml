@@ -1,5 +1,5 @@
 # CI de Nível 04 - Disparo dentro do fluxo de CI de desenvolvimento
-name: 'Execucao integrada'
+name: 'Execucao Integrada'
 # Triggers ou gatilhos de execucao
 # Gatilho de execução por deploy após outro workflow executado = workflow_run
 on: push
